@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { RTMClient } = require('@slack/client');
 
 // An access token (from your Slack app or custom integration - usually xoxb)
