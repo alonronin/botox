@@ -2,5 +2,12 @@
   "name": "@botox/stack-overflow-bot",
   "version": "1.0.0",
   "main": "./src",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon yarn start"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
 }

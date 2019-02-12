@@ -1,10 +1,19 @@
+let _ai;
+
 const botox = {
-	ai(ai) { return this; },
+	ai(ai) {
+		_ai = ai(this);
+		return this;
+	},
 	integrations(arr) { return this; },
 	conversion() { return this; },
 	train() { return this; },
 	init() {
-		console.log(this)
+		return {
+			 ask: async (str) => {
+				return await _ai.ask(str);
+			}
+		}
 	}
 };
 
