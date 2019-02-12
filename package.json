@@ -1,5 +1,5 @@
 {
-	"name": "botox",
+	"name": "botox-sdk",
 	"version": "1.0.1",
 	"private": true,
 	"workspaces": [

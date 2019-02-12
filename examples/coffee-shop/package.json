@@ -1,5 +1,5 @@
 {
-  "name": "@botox/coffee-shop",
+  "name": "@botox-sdk/coffee-shop",
   "version": "1.0.0",
   "main": "./src",
   "license": "MIT",

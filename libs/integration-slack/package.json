@@ -1,5 +1,5 @@
 {
-  "name": "@botox/integration-slack",
+  "name": "@botox-sdk/integration-slack",
   "version": "1.0.0",
   "main": "./src",
   "license": "MIT"

@@ -1,5 +1,5 @@
 {
-  "name": "@botox/ai-dialogflow",
+  "name": "@botox-sdk/ai-dialogflow",
   "version": "1.0.0",
   "main": "./src",
   "license": "MIT",

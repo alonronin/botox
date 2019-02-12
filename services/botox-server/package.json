@@ -1,5 +1,5 @@
 {
-  "name": "@botox/botox-server",
+  "name": "@botox-sdk/botox-server",
   "version": "1.0.0",
   "main": "./src",
   "license": "MIT"
