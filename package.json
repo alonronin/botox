@@ -1,0 +1,26 @@
+{
+	"name": "botox",
+	"version": "1.0.0",
+	"private": true,
+	"workspaces": [
+		"libs/*",
+		"examples/*"
+	],
+	"devDependencies": {
+		"prettier": "^1.16.4"
+	},
+	"prettier": {
+		"useTabs": false,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"printWidth": 100,
+		"overrides": [
+			{
+				"files": "*.json",
+				"options": {
+					"parser": "json"
+				}
+			}
+		]
+	}
+}

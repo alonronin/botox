@@ -1,0 +1,6 @@
+{
+  "name": "@botox/stack-overflow-bot",
+  "version": "1.0.0",
+  "main": "./src",
+  "license": "MIT"
+}
