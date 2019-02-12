@@ -1,17 +1,29 @@
+const path = require("path");
 const Router = require('koa-router');
-const Botox = require("@botox-sdk/botox")
+const Botox = require("@botox-sdk/botox");
+const dialogFlow = require('@botox-sdk/ai-dialogflow');
 
 function createAPIRouter(sessions) {
     const router = new Router();
 
     router.post('/sessions', async ctx => {
-        const session = new Botox();
+        const botox = new Botox({
+            engine: dialogFlow({
+                path: path.resolve('./credentials.json'),
+                projectId: 'coffee-shop-b810a',
+                languageCode: 'en-US'
+            }),
+            integrations: [],
+            actions: {
+                'input.welcome': async response => response.fulfillmentText
+            }
+        });
 
-        sessions.set(session.id, session);
-        
-        ctx.body = session.id;
+        sessions.set(botox.sessionId, botox);
+
+        ctx.body = botox.sessionId;
     });
-    
+
     router.post('/sessions/:sessionId/q', async ctx => {
         const botox = sessions.get(ctx.params.sessionId);
 
@@ -20,9 +32,11 @@ function createAPIRouter(sessions) {
             return;
         }
 
-        const reply = await botox.ask(ctx.request.body.q);
-        
-        ctx.body = {reply};
+        const message = await botox.ask(ctx.request.body.q);
+
+        ctx.body = {
+            message
+        };
     });
 
     return router;
