@@ -4,7 +4,8 @@
 	"private": true,
 	"workspaces": [
 		"libs/*",
-		"examples/*"
+		"examples/*",
+		"services/*"
 	],
 	"devDependencies": {
 		"prettier": "^1.16.4"
