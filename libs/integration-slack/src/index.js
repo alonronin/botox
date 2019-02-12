@@ -3,6 +3,8 @@ const { RTMClient } = require('@slack/client');
 module.exports = config => async bot => {
 	// integration code
 
+	console.log(config);
+
 	const rtm = new RTMClient(config.token);
 	rtm.start();
 
@@ -15,10 +17,14 @@ module.exports = config => async bot => {
 			return;
 		}
 
-		const result = await bot.ask(message.text);
+		try {
+			const result = await bot.ask(message.text);
+			const response = await rtm.sendMessage(result, message.channel);
 
-		const response = await rtm.sendMessage(result, message.channel);
+			console.log('slack', response);
+		} catch (e) {
+			console.error(e)
+		}
 
-		console.log('slack', response);
 	});
 };

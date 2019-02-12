@@ -23,7 +23,13 @@ module.exports = ({ path, projectId, languageCode }) => sdk => {
 
 			const [response] = await sessionClient.detectIntent(request);
 
-			return await sdk.actions[response.queryResult.action](response.queryResult);
+			console.log('ai-dialogflow', response);
+
+			if(sdk.actions[response.queryResult.action]) {
+				return await sdk.actions[response.queryResult.action](response.queryResult);
+			}
+
+			return response.queryResult.fulfillmentText;
 		}
 	}
 };
