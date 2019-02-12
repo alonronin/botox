@@ -18,4 +18,9 @@ rtm.on('message', (message) => {
 
   // Log the message
   console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
+  rtm.sendMessage(`Got your message`, message.channel)
+    .then((res) => {
+      // `res` contains information about the posted message
+      console.log('Message sent: ', res.ts);
+    })
 });

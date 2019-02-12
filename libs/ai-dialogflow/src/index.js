@@ -5,7 +5,7 @@ module.exports = ({ path, projectId, languageCode }) => sdk => {
 
 	process.env.GOOGLE_APPLICATION_CREDENTIALS = path;
 
-	const sessionId = sdk.state.sessionId;
+	const sessionId = sdk.sessionId;
 	const sessionClient = new dialogflow.SessionsClient();
 	const session = sessionClient.sessionPath(projectId, sessionId);
 
@@ -23,7 +23,7 @@ module.exports = ({ path, projectId, languageCode }) => sdk => {
 
 			const [response] = await sessionClient.detectIntent(request);
 
-			return await sdk.state.actions[response.queryResult.action](response.queryResult);
+			return await sdk.actions[response.queryResult.action](response.queryResult);
 		}
 	}
 };
