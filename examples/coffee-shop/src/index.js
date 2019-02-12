@@ -1,6 +1,6 @@
-const Botox = require('@botox/botox');
-const dialogFlow = require('@botox/ai-dialogflow');
-const slack = require('@botox/integration-slack');
+const Botox = require('@botox-sdk/botox');
+const dialogFlow = require('@botox-sdk/ai-dialogflow');
+const slack = require('@botox-sdk/integration-slack');
 const { resolve } = require('path');
 
 (async () => {
