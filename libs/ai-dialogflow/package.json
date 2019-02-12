@@ -2,5 +2,9 @@
   "name": "@botox/ai-dialogflow",
   "version": "1.0.0",
   "main": "./src",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dialogflow": "^0.8.0",
+    "uuid": "^3.3.2"
+  }
 }
