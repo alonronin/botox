@@ -1,0 +1,9 @@
+{
+  "name": "@botox-sdk/slack",
+  "version": "1.0.0",
+  "main": "./src",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/client": "^4.8.0"
+  }
+}
