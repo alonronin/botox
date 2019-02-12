@@ -4,27 +4,27 @@ const slack = require('@botox-sdk/integration-slack');
 const { resolve } = require('path');
 
 (async () => {
-  const bot = new Botox()
-    .engine(
-      dialogFlow({
-        path: resolve('./src/credentials.json'),
-        projectId: 'coffee-shop-b810a',
-        languageCode: 'en-US'
-      })
-    )
-    .integrations([
-      slack({
-        clientId: 'Tikal',
-        clientSecret: 'secret',
-        token: 'token'
-      })
-    ])
-    .actions({
-      'input.welcome': async response => response.fulfillmentText
-    })
-    .init();
+  const engine = dialogFlow({
+    path: resolve('./src/credentials.json'),
+    projectId: 'coffee-shop-b810a',
+    languageCode: 'en-US'
+  });
 
-  const result = await bot.ask('Hey');
+  const integrations =[slack({
+    token: 'xoxb-2341365858-548649920067-zGbNCS1FcjmctyVkn63OoRep'
+  })];
 
-  console.log(result);
+  const actions = {
+    'input.welcome': async response => response.fulfillmentText
+  };
+
+  const bot = new Botox({
+    engine,
+    actions,
+    integrations
+  });
+
+  // const result = await bot.ask('Hey');
+  //
+  // console.log(result);
 })();

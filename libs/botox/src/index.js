@@ -1,12 +1,12 @@
 const uuid = require('uuid');
 
 class Botox {
-  constructor({engine, integrations, actions}) {
+  constructor({engine, integrations = [], actions}) {
     const sessionId = uuid.v4();
     
     this.sessionId = sessionId;
     this.engine = engine({actions, sessionId});
-    this.integrations = integrations || [];
+    this.integrations = integrations.forEach(integration => integration(this));
   }
 
   ask(q) {
