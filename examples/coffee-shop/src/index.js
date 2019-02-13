@@ -12,7 +12,7 @@ const { resolve } = require('path');
 
   const integrations = [
     slack({
-      token: 'xoxb-2341365858-548649920067-s0GlLCfe78Gu3ZysQmS44kvu'
+      token: process.env.SLACK_TOKEN
     })
   ];
 

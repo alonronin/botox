@@ -3,10 +3,10 @@ const { RTMClient } = require('@slack/client');
 module.exports = config => async bot => {
 	// integration code
 
-	console.log(config);
-
 	const rtm = new RTMClient(config.token);
 	rtm.start();
+
+	console.log('Started Slack Integration with Token:', config.token);
 
 	rtm.on('message', async message => {
 		// For structure of `message`, see https://api.slack.com/events/message
